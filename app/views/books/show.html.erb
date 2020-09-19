@@ -1,0 +1,52 @@
+<% if !flash[:notice].blank? %>
+    <div class = "notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<%= link_to("Back to Home Page",books_path, :class =>'back-link') %>
+
+<div class = "book show">
+<h2>One Book From The Collection</h2>
+
+<table summary="Single Book">
+    <tr>
+        <th>ID</th>
+        <td> <%= @Book.id %> </td>
+    </tr>
+    <tr>   
+        <th>Title</th>  
+        <td> <%= @Book.title %> </td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td> <%= @Book.author %> </td>
+    </tr>
+    <tr>
+        <th>Genre</th>
+        <td> <%= @Book.genre %> </td>
+    </tr>
+    <tr>
+        <th>Price</th> 
+        <td> <%= @Book.price %> </td>
+    </tr>
+    <tr>
+        <th>Published-Date</th>
+        <td> <%= @Book.published_date  %> </td>
+    </tr>
+    <tr>
+        <th>Created_At</th>
+        <td> <%= @Book.created_at  %> </td>
+    </tr>
+    <tr>
+        <th>Updated_At</th>
+        <td> <%= @Book.updated_at  %> </td>
+    </tr>
+  
+    
+    
+   
+    
+</table>
+
+</div>
