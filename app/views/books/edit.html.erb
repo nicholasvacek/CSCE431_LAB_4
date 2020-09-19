@@ -1,0 +1,46 @@
+<% if !flash[:notice].blank? %>
+    <div class = "notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<%= link_to("Back to Home Page", books_path , :class =>'back-link') %>
+
+<div class = "book edit">
+    <h2>Edit Book</h2>
+
+    <%= form_for(@Book, :html => {:multipart => true}) do |f| %>
+
+    <table summary = "Fields to edit in the Book">
+    <tr>   
+        <th>Title</th>  
+        <td> <%= f.text_field(:title) %> </td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td> <%= f.text_field(:author) %> </td>
+    </tr>
+    <tr>
+        <th>Genre</th>
+        <td>
+        <%= f.select(:genre, ["","Action and Adventure", "Classic", "Comic Book", "Fantasy", "Poetry", "Science Fiction"]) %>
+        </td>
+    </tr>
+    <tr>
+        <th>Price</th> 
+        <td> <%= f.text_field(:price) %> </td>
+    </tr>
+    <tr>
+        <th>Published-Date</th>
+        <td> <%= f.date_select(:published_date, :order => [:month, :day, :year], :start_year => 1800, :end_year => Time.now.year)  %> </td> 
+    </tr>
+
+    </table>
+  
+    <div class = "form-buttons">
+        <%= f.submit("Edit Book") %>
+    </div>
+
+    
+    <% end %>
+</div>
